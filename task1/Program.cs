@@ -1,15 +1,12 @@
-﻿// Задача 36: Задайте одномерный массив, заполненный случайными числами. 
-// Найдите сумму элементов, стоящих на нечётных позициях.
-
-// [3, 7, 23, 12] -> 19
-
-// [-4, -6, 89, 6] -> 0
+﻿// Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. 
+// Напишите программу, которая покажет количество чётных чисел в массиве.
+//[345, 897, 568, 234] -> 2
 
 void FillArray (int [] arr) /// Метод заполнения массива случайными числами 
 {
     for (int i= 0; i < arr.Length; i++ )
     {
-    arr[i] = new Random().Next(-99,100); 
+    arr[i] = new Random().Next(100,1000); 
     }
 }
 
@@ -24,19 +21,21 @@ void PrintArray(int[] arr) // Метод вывода массива на экр
      Console.WriteLine();
 }
 
-int GetSummNeChetPosition (int[] arr) // Метод подсчета четных чисел
+int GetSummChet (int[] arr) // Метод подсчета четных чисел
+
 {
-     int summ =0;
+     int count =0;
      for (int i= 0; i < arr.Length; i++ )
      {
-        if (i % 2 == 1 )
-            summ +=  arr[i];
+        if (arr[i] % 2 == 0)
+            count ++;
      }       
-     return summ;
+     return count;
      
 } 
 
-int[] massiv = new int [6];
+
+int[] massiv = new int [4];
 FillArray(massiv);
 PrintArray(massiv);
-Console.WriteLine("Сумма чисел стоящих на нечетных позициях массива составляет: " + GetSummNeChetPosition(massiv));
+Console.WriteLine("количество четных чисел в массиве: " + GetSummChet(massiv));
